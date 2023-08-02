@@ -11,7 +11,10 @@ import SwiftUI
 struct MovieAppApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            let remoteDataSource = RemoteDataSourceImpl()
+            let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
+            let homeViewModel = HomeViewModel(repository: repository)
+            HomeView(homeViewModel: homeViewModel)
         }
     }
 }

@@ -56,7 +56,11 @@ struct MovieSection: View {
     let title: String
     
     var body: some View {
-        Section(header: Text(title).bold().foregroundColor(.white).padding(.leading, 8).font(.title3)) {
+        Section(header: Text(title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding([.leading,.bottom], 8)
+                            .font(.title3)) {
             ScrollView(.horizontal,showsIndicators: false) {
                 HStack{
                     ForEach(movies) { movie in
@@ -74,10 +78,12 @@ struct MovieSection: View {
 
 struct HomeView: View {
     @State private var searchText = ""
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    init() {
+    init(homeViewModel: HomeViewModel) {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().barStyle = .black
+        self.homeViewModel = homeViewModel
     }
     
     var body: some View {
@@ -93,8 +99,6 @@ struct HomeView: View {
                                         Angle(
                                             degrees: (Double(geometry.frame(in: .global).minX)) / -10),
                                             axis: (x: 0, y: 10.0, z: 0))
-                                    
-                                    
                             }
                             .frame(width: 300, height: 400)
                         }
@@ -121,7 +125,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        let remoteDataSource = RemoteDataSourceImpl()
+        let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
+        let homeViewModel = HomeViewModel(repository: repository)
+        HomeView(homeViewModel: homeViewModel)
     }
 }
 
