@@ -44,8 +44,10 @@ struct MovieView: View {
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(1)
+                .opacity(0.6)
         }
         .cornerRadius(10)
+        .padding(.leading, 8)
     }
 }
 
@@ -54,9 +56,9 @@ struct MovieSection: View {
     let title: String
     
     var body: some View {
-        Section(header: Text(title).bold().foregroundColor(.white)) {
+        Section(header: Text(title).bold().foregroundColor(.white).padding(.leading, 8).font(.title3)) {
             ScrollView(.horizontal,showsIndicators: false) {
-                HStack(spacing: 8) {
+                HStack{
                     ForEach(movies) { movie in
                         MovieView(movie: movie, textFont: .title3)
                             .frame(width: 150, height: 200)
@@ -64,6 +66,7 @@ struct MovieSection: View {
                 }
             }
         }
+        .listRowInsets(EdgeInsets())
         .listRowBackground(backgroundColor)
     }
 }
@@ -82,19 +85,26 @@ struct HomeView: View {
         NavigationView {
             List {
                 ScrollView(.horizontal,showsIndicators: false) {
-                    HStack(spacing: 12) {
+                    HStack(spacing: -20) {
                         ForEach(movies) { movie in
-                            MovieView(movie: movie, textFont: .title)
-                                .frame(width: 350, height: 400)
+                            GeometryReader { geometry in
+                                MovieView(movie: movie, textFont: .title)
+                                    .rotation3DEffect(
+                                        Angle(
+                                            degrees: (Double(geometry.frame(in: .global).minX)) / -10),
+                                            axis: (x: 0, y: 10.0, z: 0))
+                                    
+                                    
+                            }
+                            .frame(width: 300, height: 400)
                         }
                     }
                 }
+                .listRowInsets(EdgeInsets())
                 .listRowBackground(backgroundColor)
                 
                 MovieSection(movies: movies, title: "Most Popular")
-                
                 MovieSection(movies: movies, title: "Top Rated")
-                
             }
             .listStyle(.grouped)
             .scrollContentBackground(.hidden)
@@ -105,11 +115,7 @@ struct HomeView: View {
     }
     
     var searchResults: String {
-        if searchText.isEmpty {
-            return ""
-        } else {
-            return "caca"
-        }
+        ""
     }
 }
 
