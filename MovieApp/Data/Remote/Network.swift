@@ -11,7 +11,7 @@ import Combine
 
 class Network {
     
-    func fetchApiData<T>(type: T.Type, request: URLRequest) -> AnyPublisher<T, Error> where T: Decodable {
+    func fetchApiData(request: URLRequest) -> AnyPublisher<[Movie], Error> {
         URLSession.shared
             .dataTaskPublisher(for: request)
             .tryMap{ result in
@@ -21,7 +21,7 @@ class Network {
                 }
                 return result.data
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: [Movie].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

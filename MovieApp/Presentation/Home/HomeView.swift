@@ -29,7 +29,7 @@ struct MovieView: View {
                     
                     .scaledToFill()
             } placeholder: {
-                Image(systemName: "popcorn.fill")
+                Image("interstellar")
                     .resizable()
             }
             
@@ -44,7 +44,7 @@ struct MovieView: View {
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(1)
-                .opacity(0.6)
+                .opacity(0.8)
         }
         .cornerRadius(10)
         .padding(.leading, 8)
@@ -59,7 +59,7 @@ struct MovieSection: View {
         Section(header: Text(title)
                             .bold()
                             .foregroundColor(.white)
-                            .padding([.leading,.bottom], 8)
+                            .padding(8)
                             .font(.title3)) {
             ScrollView(.horizontal,showsIndicators: false) {
                 HStack{
@@ -95,8 +95,7 @@ struct HomeView: View {
                         ForEach(movies) { movie in
                             GeometryReader { geometry in
                                 MovieView(movie: movie, textFont: .title)
-                                    .rotation3DEffect(
-                                        Angle(
+                                    .rotation3DEffect(Angle(
                                             degrees: (Double(geometry.frame(in: .global).minX)) / -10),
                                             axis: (x: 0, y: 10.0, z: 0))
                             }
