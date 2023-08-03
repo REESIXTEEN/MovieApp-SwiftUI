@@ -21,6 +21,7 @@
 		5823720A2A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372092A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift */; };
 		5823720C2A7A7EBA00A7F756 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720B2A7A7EBA00A7F756 /* HomeViewModel.swift */; };
 		5823720E2A7A859500A7F756 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720D2A7A859500A7F756 /* Network.swift */; };
+		582372102A7B813C00A7F756 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720F2A7B813C00A7F756 /* ExampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		582372092A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		5823720B2A7A7EBA00A7F756 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5823720D2A7A859500A7F756 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5823720F2A7B813C00A7F756 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				582371D12A7A3CD200A7F756 /* Preview Assets.xcassets */,
+				5823720F2A7B813C00A7F756 /* ExampleData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				582372002A7A3DF500A7F756 /* HomeView.swift in Sources */,
 				5823720A2A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift in Sources */,
 				5823720C2A7A7EBA00A7F756 /* HomeViewModel.swift in Sources */,
+				582372102A7B813C00A7F756 /* ExampleData.swift in Sources */,
 				582372082A7A7E4900A7F756 /* RemoteDataSourceImpl.swift in Sources */,
 				5823720E2A7A859500A7F756 /* Network.swift in Sources */,
 				582371CB2A7A3CD100A7F756 /* MovieAppApp.swift in Sources */,
