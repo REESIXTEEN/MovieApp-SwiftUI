@@ -18,18 +18,19 @@ final class HomeViewModel: ObservableObject {
     
     init(repository: RepositoryProtocol) {
         self.repository = repository
+        getNewMovies()
     }
     
     func getNewMovies() {
-        
+        repository.getNewMovies()
     }
     
     func getTopMovies() {
-        
+        repository.getTopMovies()
     }
     
     func getTrendingMovies() {
-        
+        repository.getTrendingMovies()
     }
     
 }

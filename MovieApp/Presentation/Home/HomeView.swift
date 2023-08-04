@@ -9,13 +9,6 @@ import SwiftUI
 
 let backgroundColor = Color(red: 0.063, green: 0.176, blue: 0.243)
 
-let movies: [Movie] = [
-    .init(id: "2", name: "Interstellar", synopsis: "Vamos a salvar el mundo metiendonos en un agujero negro", rate: 9, image: "https://m.media-amazon.com/images/I/51UYbs7t0sL._AC_UF1000,1000_QL80_.jpg"),
-    .init(id: "3", name: "El Padrino", synopsis: "mafia, mafia, italianos y mas mafia", rate: 4, image: "https://i0.wp.com/www.cinemanet.info/wp-content/uploads/2015/10/poster-de-el-padrino.jpg?ssl=1"),
-    .init(id: "1", name: "Memento", synopsis: "No se acuerda de nada el men", rate: 8.5, image: "https://m.media-amazon.com/images/I/515EOVqRexL._AC_.jpg")
-]
-
-
 struct MovieView: View {
     let movie: Movie
     let textFont: Font
@@ -31,10 +24,9 @@ struct MovieView: View {
                     .resizable()
             }
             
-            Rectangle()
-                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
-                .opacity(0.8)
-                .id(1)
+//            Rectangle()
+//                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
+//                .opacity(0.8)
                         
 //            Text(movie.name)
 //                .font(textFont)
@@ -59,7 +51,7 @@ struct MovieSection: View {
                 .foregroundColor(.white)
                 .padding(8)
                 .font(.title3)){
-//            Divider().background(.white)
+//                    Divider().background(.white).padding([.leading,.trailing],50)
             ScrollView(.horizontal,showsIndicators: false) {
                 HStack{
                     ForEach(movies) { movie in
@@ -104,19 +96,19 @@ struct HomeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
     init(homeViewModel: HomeViewModel) {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().barStyle = .black
         self.homeViewModel = homeViewModel
     }
     
     var body: some View {
-
         NavigationView {
             List {
                 PrincipalMovieSection(movies: movies)
                     .padding(.leading, paddingAnim)
+//                    .shadow(color: .black, radius: 1, x: 10, y: 5)
                 MovieSection(movies: movies, title: "Most Popular")
                     .padding(.leading, -paddingAnim)
+//                    .shadow(color: .red, radius: 5, x: 20, y: 20)
                 MovieSection(movies: movies, title: "Top Rated")
             }
             .listStyle(.grouped)
@@ -132,7 +124,6 @@ struct HomeView: View {
             }
         }
         .searchable(text: $searchText,prompt: "Search movie")
-
     }
     
     var searchResults: String {

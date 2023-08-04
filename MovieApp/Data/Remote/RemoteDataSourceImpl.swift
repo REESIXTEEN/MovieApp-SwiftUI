@@ -19,7 +19,7 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
     }
     
     func getTopMovies(token:String) {
-        
+
     }
     
     func getTrendingMovies(token:String) {

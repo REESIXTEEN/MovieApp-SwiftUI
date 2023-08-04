@@ -12,6 +12,6 @@ struct Movie: Identifiable, Decodable {
     let id: String
     let name: String
     let synopsis: String
-    let rate: Float
+    let rate: Double
     let image: String
 }
