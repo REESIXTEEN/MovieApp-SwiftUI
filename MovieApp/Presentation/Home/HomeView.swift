@@ -14,30 +14,36 @@ struct MovieView: View {
     let textFont: Font
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            
-            AsyncImage(url: URL(string: movie.image)) { image in
-                image
-                    .resizable()
-            } placeholder: {
-                Image(systemName: "popcorn.fill")
-                    .resizable()
+        NavigationLink {
+            DetailView(movie: movie)
+        } label: {
+            ZStack(alignment: .bottom) {
+                
+                AsyncImage(url: URL(string: movie.image)) { image in
+                    image
+                        .resizable()
+                } placeholder: {
+                    Image(systemName: "popcorn.fill")
+                        .resizable()
+                }
+                
+    //            Rectangle()
+    //                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
+    //                .opacity(0.8)
+                            
+    //            Text(movie.name)
+    //                .font(textFont)
+    //                .foregroundColor(.white)
+    //                .padding()
+    //                .frame(maxWidth: .infinity, alignment: .leading)
+    //                .lineLimit(1)
+    //                .opacity(0.8)
             }
-            
-//            Rectangle()
-//                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
-//                .opacity(0.8)
-                        
-//            Text(movie.name)
-//                .font(textFont)
-//                .foregroundColor(.white)
-//                .padding()
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//                .lineLimit(1)
-//                .opacity(0.8)
+            .cornerRadius(10)
+            .padding(.leading, 8)
         }
-        .cornerRadius(10)
-        .padding(.leading, 8)
+
+
     }
 }
 
@@ -96,7 +102,7 @@ struct HomeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
     init(homeViewModel: HomeViewModel) {
-        UINavigationBar.appearance().barStyle = .black
+//        UINavigationBar.appearance().barStyle = .black
         self.homeViewModel = homeViewModel
     }
     
@@ -105,10 +111,8 @@ struct HomeView: View {
             List {
                 PrincipalMovieSection(movies: movies)
                     .padding(.leading, paddingAnim)
-//                    .shadow(color: .black, radius: 1, x: 10, y: 5)
                 MovieSection(movies: movies, title: "Most Popular")
                     .padding(.leading, -paddingAnim)
-//                    .shadow(color: .red, radius: 5, x: 20, y: 20)
                 MovieSection(movies: movies, title: "Top Rated")
             }
             .listStyle(.grouped)
@@ -122,8 +126,12 @@ struct HomeView: View {
                     }
                 }
             }
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
         .searchable(text: $searchText,prompt: "Search movie")
+        
+        
     }
     
     var searchResults: String {

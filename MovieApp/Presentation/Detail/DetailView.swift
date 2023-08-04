@@ -24,7 +24,10 @@ struct PrincipalImage: View {
             
             Rectangle()
                 .fill(LinearGradient(gradient: Gradient(colors: [backgroundColor, .clear]), startPoint: .bottom, endPoint: .center))
+                .frame(height: 400)
         }
+        .frame(height: 400)
+        .clipped()
     }
 }
 
@@ -101,6 +104,7 @@ struct CastSection: View {
         }
         .listRowInsets(EdgeInsets())
         .listRowBackground(backgroundColor)
+        .padding(.bottom, 8)
     }
 }
 
@@ -118,6 +122,7 @@ struct PlatformsSection: View {
         }
         .listRowInsets(EdgeInsets())
         .listRowBackground(backgroundColor)
+        .padding(.bottom, 8)
     }
 }
 
@@ -125,11 +130,15 @@ struct PlatformsSection: View {
 struct DetailView: View {
     let movie: Movie
     
+    init(movie: Movie) {
+        self.movie = movie
+        UINavigationBar.appearance().barStyle = .black
+    }
+    
     var body: some View {
         ScrollView{
             VStack {
                 PrincipalImage(movieImage: movie.image)
-                    .frame(height: 400)
                 
                 HStack{
                     Text(movie.name)
@@ -158,7 +167,6 @@ struct DetailView: View {
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
-                    
                 }
                 
                 Text(movie.synopsis)
@@ -171,9 +179,13 @@ struct DetailView: View {
                 PlatformsSection(platforms: platforms)
                 
             }
-            
         }
         .background(backgroundColor)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
+        
+        
         
     }
 }
