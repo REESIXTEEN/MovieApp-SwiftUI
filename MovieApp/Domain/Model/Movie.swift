@@ -8,10 +8,11 @@
 import Foundation
 
 
-struct Movie: Identifiable, Decodable {
-    let id: String
-    let name: String
-    let synopsis: String
-    let rate: Double
-    let image: String
+struct Movie: Codable, Identifiable {
+    let id: Int
+    let overview: String
+    let popularity: Double
+    let poster_path: String
+    let title: String
+    let vote_average: Double
 }

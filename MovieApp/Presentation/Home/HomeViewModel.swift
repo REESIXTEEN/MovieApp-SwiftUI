@@ -11,26 +11,50 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     
     private let repository: RepositoryProtocol
-    @Published var Newmovies: [Movie] = []
-    @Published var Topmovies: [Movie] = []
-    @Published var Trendingmovies: [Movie] = []
+    @Published var newMovies: [Movie] = []
+    @Published var topMovies: [Movie] = []
+    @Published var popularMovies: [Movie] = []
     
     
     init(repository: RepositoryProtocol) {
         self.repository = repository
-        getNewMovies()
+        DispatchQueue.main.async {
+            Task {
+                await self.getNewMovies()
+                await self.getTopMovies()
+                await self.getPopularMovies()
+            }
+        }
     }
     
-    func getNewMovies() {
-        repository.getNewMovies()
+    func getNewMovies() async {
+        guard let newMovies = try? await repository.getNewMovies() else {
+            print("Error getting upcoming movies")
+            return
+        }
+        DispatchQueue.main.async {
+            self.newMovies = newMovies
+        }
     }
     
-    func getTopMovies() {
-        repository.getTopMovies()
+    func getTopMovies() async {
+        guard let topMovies = try? await repository.getTopMovies() else {
+            print("Error getting top rated movies")
+            return
+        }
+        DispatchQueue.main.async {
+            self.topMovies = topMovies
+        }
     }
     
-    func getTrendingMovies() {
-        repository.getTrendingMovies()
+    func getPopularMovies() async {
+        guard let popularMovies = try? await repository.getPopularMovies() else {
+            print("Error getting popular movies")
+            return
+        }
+        DispatchQueue.main.async {
+            self.popularMovies = popularMovies
+        }
     }
     
 }

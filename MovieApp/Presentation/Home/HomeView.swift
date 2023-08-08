@@ -19,31 +19,17 @@ struct MovieView: View {
         } label: {
             ZStack(alignment: .bottom) {
                 
-                AsyncImage(url: URL(string: movie.image)) { image in
+                AsyncImage(url: URL(string: movie.poster_path)) { image in
                     image
                         .resizable()
                 } placeholder: {
                     Image(systemName: "popcorn.fill")
                         .resizable()
                 }
-                
-    //            Rectangle()
-    //                .fill(LinearGradient(gradient: Gradient(colors: [.black, .clear]), startPoint: .bottom, endPoint: .center))
-    //                .opacity(0.8)
-                            
-    //            Text(movie.name)
-    //                .font(textFont)
-    //                .foregroundColor(.white)
-    //                .padding()
-    //                .frame(maxWidth: .infinity, alignment: .leading)
-    //                .lineLimit(1)
-    //                .opacity(0.8)
             }
             .cornerRadius(10)
             .padding(.leading, 8)
         }
-
-
     }
 }
 
@@ -99,21 +85,16 @@ struct PrincipalMovieSection: View {
 struct HomeView: View {
     @State private var paddingAnim = 500.0
     @State private var searchText = ""
-    @ObservedObject var homeViewModel: HomeViewModel
-    
-    init(homeViewModel: HomeViewModel) {
-//        UINavigationBar.appearance().barStyle = .black
-        self.homeViewModel = homeViewModel
-    }
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         NavigationView {
             List {
-                PrincipalMovieSection(movies: movies)
+                PrincipalMovieSection(movies: viewModel.newMovies)
                     .padding(.leading, paddingAnim)
-                MovieSection(movies: movies, title: "Most Popular")
+                MovieSection(movies: viewModel.popularMovies, title: "Most Popular")
                     .padding(.leading, -paddingAnim)
-                MovieSection(movies: movies, title: "Top Rated")
+                MovieSection(movies: viewModel.topMovies, title: "Top Rated")
             }
             .listStyle(.grouped)
             .scrollContentBackground(.hidden)
@@ -130,8 +111,6 @@ struct HomeView: View {
             .toolbarBackground(.visible, for: .navigationBar)
         }
         .searchable(text: $searchText,prompt: "Search movie")
-        
-        
     }
     
     var searchResults: String {
@@ -139,12 +118,33 @@ struct HomeView: View {
     }
 }
 
+
+//struct prueba: View {
+//    @State private var showHome = false
+//    var body: some View {
+//        if showHome {
+//            let remoteDataSource = RemoteDataSourceImpl()
+//            let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
+//            let homeViewModel = HomeViewModel(repository: repository)
+//            HomeView(homeViewModel: homeViewModel)
+//        }
+//        else {
+//            SplashView()
+//                .onAppear{
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+//                        showHome = true
+//                    }
+//                }
+//        }
+//    }
+//}
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         let remoteDataSource = RemoteDataSourceImpl()
         let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
-        let homeViewModel = HomeViewModel(repository: repository)
-        HomeView(homeViewModel: homeViewModel)
+        let viewModel = HomeViewModel(repository: repository)
+        HomeView(viewModel: viewModel)
     }
 }
 

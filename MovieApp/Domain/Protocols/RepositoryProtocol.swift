@@ -9,8 +9,8 @@ import Foundation
 
 protocol RepositoryProtocol {
     
-    func getTopMovies()
-    func getTrendingMovies()
-    func getNewMovies()
+    func getTopMovies() async throws -> [Movie]
+    func getPopularMovies() async throws -> [Movie]
+    func getNewMovies() async throws -> [Movie]
     
 }

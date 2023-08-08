@@ -20,11 +20,16 @@
 		582372082A7A7E4900A7F756 /* RemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372072A7A7E4900A7F756 /* RemoteDataSourceImpl.swift */; };
 		5823720A2A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372092A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift */; };
 		5823720C2A7A7EBA00A7F756 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720B2A7A7EBA00A7F756 /* HomeViewModel.swift */; };
-		5823720E2A7A859500A7F756 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720D2A7A859500A7F756 /* Network.swift */; };
 		582372102A7B813C00A7F756 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5823720F2A7B813C00A7F756 /* ExampleData.swift */; };
 		582372122A7CD93700A7F756 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372112A7CD93700A7F756 /* DetailView.swift */; };
 		582372162A7CEEE200A7F756 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372152A7CEEE200A7F756 /* Actor.swift */; };
 		582372182A7D011000A7F756 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372172A7D011000A7F756 /* Platform.swift */; };
+		586164C32A80D17700C950EC /* BaseResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C22A80D17700C950EC /* BaseResquest.swift */; };
+		586164C52A80D77400C950EC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C42A80D77400C950EC /* NetworkProtocol.swift */; };
+		586164C72A80F29500C950EC /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C62A80F29500C950EC /* ApiResponse.swift */; };
+		586164CA2A80F86B00C950EC /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C92A80F86B00C950EC /* URLSessionExtension.swift */; };
+		586164CC2A81087600C950EC /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164CB2A81087600C950EC /* Mappers.swift */; };
+		586164CF2A810EE000C950EC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164CE2A810EE000C950EC /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,11 +66,16 @@
 		582372072A7A7E4900A7F756 /* RemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceImpl.swift; sourceTree = "<group>"; };
 		582372092A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceProtocol.swift; sourceTree = "<group>"; };
 		5823720B2A7A7EBA00A7F756 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		5823720D2A7A859500A7F756 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		5823720F2A7B813C00A7F756 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		582372112A7CD93700A7F756 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		582372152A7CEEE200A7F756 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		582372172A7D011000A7F756 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		586164C22A80D17700C950EC /* BaseResquest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResquest.swift; sourceTree = "<group>"; };
+		586164C42A80D77400C950EC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		586164C62A80F29500C950EC /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		586164C92A80F86B00C950EC /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		586164CB2A81087600C950EC /* Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappers.swift; sourceTree = "<group>"; };
+		586164CE2A810EE000C950EC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,7 @@
 		582371F42A7A3D4E00A7F756 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				586164CD2A810ED300C950EC /* Splash */,
 				582371FA2A7A3D8400A7F756 /* Detail */,
 				582371F92A7A3D7C00A7F756 /* Home */,
 			);
@@ -164,6 +175,7 @@
 		582371F52A7A3D5C00A7F756 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				586164C82A80F85000C950EC /* Extensions */,
 				582371FC2A7A3DAC00A7F756 /* Utils */,
 				582371FB2A7A3DA800A7F756 /* Remote */,
 				582372032A7A7DDD00A7F756 /* RepositoryImpl.swift */,
@@ -209,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				582372072A7A7E4900A7F756 /* RemoteDataSourceImpl.swift */,
-				5823720D2A7A859500A7F756 /* Network.swift */,
+				586164C22A80D17700C950EC /* BaseResquest.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -217,6 +229,7 @@
 		582371FC2A7A3DAC00A7F756 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				586164CB2A81087600C950EC /* Mappers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 			children = (
 				582372052A7A7DF200A7F756 /* RepositoryProtocol.swift */,
 				582372092A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift */,
+				586164C42A80D77400C950EC /* NetworkProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -236,8 +250,25 @@
 				582372012A7A3EAF00A7F756 /* Movie.swift */,
 				582372152A7CEEE200A7F756 /* Actor.swift */,
 				582372172A7D011000A7F756 /* Platform.swift */,
+				586164C62A80F29500C950EC /* ApiResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		586164C82A80F85000C950EC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				586164C92A80F86B00C950EC /* URLSessionExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		586164CD2A810ED300C950EC /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				586164CE2A810EE000C950EC /* SplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,19 +401,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				586164CC2A81087600C950EC /* Mappers.swift in Sources */,
+				586164C32A80D17700C950EC /* BaseResquest.swift in Sources */,
 				582372062A7A7DF200A7F756 /* RepositoryProtocol.swift in Sources */,
+				586164C52A80D77400C950EC /* NetworkProtocol.swift in Sources */,
 				582372002A7A3DF500A7F756 /* HomeView.swift in Sources */,
 				5823720A2A7A7E6700A7F756 /* RemoteDataSourceProtocol.swift in Sources */,
+				586164C72A80F29500C950EC /* ApiResponse.swift in Sources */,
 				582372182A7D011000A7F756 /* Platform.swift in Sources */,
 				582372162A7CEEE200A7F756 /* Actor.swift in Sources */,
+				586164CA2A80F86B00C950EC /* URLSessionExtension.swift in Sources */,
 				5823720C2A7A7EBA00A7F756 /* HomeViewModel.swift in Sources */,
 				582372102A7B813C00A7F756 /* ExampleData.swift in Sources */,
 				582372122A7CD93700A7F756 /* DetailView.swift in Sources */,
 				582372082A7A7E4900A7F756 /* RemoteDataSourceImpl.swift in Sources */,
-				5823720E2A7A859500A7F756 /* Network.swift in Sources */,
 				582371CB2A7A3CD100A7F756 /* MovieAppApp.swift in Sources */,
 				582372022A7A3EAF00A7F756 /* Movie.swift in Sources */,
 				582372042A7A7DDD00A7F756 /* RepositoryImpl.swift in Sources */,
+				586164CF2A810EE000C950EC /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

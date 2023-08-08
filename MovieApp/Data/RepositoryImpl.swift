@@ -11,22 +11,25 @@ import Foundation
 final class RepositoryImpl: RepositoryProtocol {
 
     private let remoteDataSource: RemoteDataSourceProtocol
-    let token = ""
     
     init(remoteDataSource: RemoteDataSourceProtocol) {
         self.remoteDataSource = remoteDataSource
     }
     
-    func getTopMovies() {
-        remoteDataSource.getTopMovies(token: token)
+    func getTopMovies() async throws -> [Movie] {
+        guard let movies =  try? await remoteDataSource.getTopMovies() else { return [] }
+        return mapMoviePhoto(movies: movies)
     }
     
-    func getTrendingMovies() {
-        remoteDataSource.getTrendingMovies(token: token)
+    func getPopularMovies() async throws -> [Movie] {
+        guard let movies =  try? await remoteDataSource.getPopularMovies() else { return [] }
+        return mapMoviePhoto(movies: movies)
     }
     
-    func getNewMovies() {
-        remoteDataSource.getNewMovies(token: token)
+    func getNewMovies() async throws -> [Movie] {
+        guard let movies =  try? await remoteDataSource.getNewMovies() else { return [] }
+        return mapMoviePhoto(movies: movies)
     }
+    
     
 }

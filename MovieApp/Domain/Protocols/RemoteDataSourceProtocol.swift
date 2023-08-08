@@ -9,8 +9,8 @@ import Foundation
 
 protocol RemoteDataSourceProtocol {
     
-    func getTopMovies(token:String)
-    func getTrendingMovies(token:String)
-    func getNewMovies(token:String)
+    func getTopMovies() async throws -> [Movie]?
+    func getPopularMovies() async throws -> [Movie]?
+    func getNewMovies() async throws -> [Movie]?
     
 }

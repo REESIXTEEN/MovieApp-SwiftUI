@@ -138,17 +138,17 @@ struct DetailView: View {
     var body: some View {
         ScrollView{
             VStack {
-                PrincipalImage(movieImage: movie.image)
+                PrincipalImage(movieImage: movie.poster_path)
                 
                 HStack{
-                    Text(movie.name)
+                    Text(movie.title)
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
                     Spacer()
-                    Text(String(format: "%.1f / 10", movie.rate))
+                    Text(String(format: "%.1f / 10", movie.vote_average))
                         .font(.title2)
                         .foregroundColor(.white)
                         .padding(8)
@@ -156,20 +156,20 @@ struct DetailView: View {
                 }
                 
                 HStack{
-                    Text("Country: \(movie.name)")
+                    Text("Country: \(movie.title)")
                         .font(.title3)
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
                     Spacer()
-                    Text(movie.name)
+                    Text(movie.title)
                         .font(.title3)
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
                 }
                 
-                Text(movie.synopsis)
+                Text(movie.overview)
                     .font(.body)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)

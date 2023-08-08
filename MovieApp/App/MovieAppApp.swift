@@ -14,7 +14,8 @@ struct MovieAppApp: App {
             let remoteDataSource = RemoteDataSourceImpl()
             let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
             let homeViewModel = HomeViewModel(repository: repository)
-            HomeView(homeViewModel: homeViewModel)
+            HomeView(viewModel: homeViewModel)
+            
         }
     }
 }
