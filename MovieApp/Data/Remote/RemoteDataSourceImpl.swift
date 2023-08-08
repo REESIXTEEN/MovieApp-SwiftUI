@@ -85,12 +85,12 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         
         let (data, _) = try await session.data(url: request)
         
-        do{
-            let response = try JSONDecoder().decode(CastApiResponse.self, from: data)
-        }
-        catch{
-            print(error)
-        }
+//        do{
+//            let response = try JSONDecoder().decode(CastApiResponse.self, from: data)
+//        }
+//        catch{
+//            print(error)
+//        }
         
         let response = try JSONDecoder().decode(CastApiResponse.self, from: data)
         return response.cast
@@ -104,12 +104,12 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         
         let (data, _) = try await session.data(url: request)
         
-        do{
-            let response = try JSONDecoder().decode(PlatformApiResponse.self, from: data)
-        }
-        catch{
-            print(error)
-        }
+//        do{
+//            let response = try JSONDecoder().decode(PlatformApiResponse.self, from: data)
+//        }
+//        catch{
+//            print(error)
+//        }
         
         let response = try JSONDecoder().decode(PlatformApiResponse.self, from: data)
         return response.results.ES.rent

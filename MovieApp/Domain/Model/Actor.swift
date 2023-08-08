@@ -11,7 +11,7 @@ import Foundation
 struct Actor: Codable, Identifiable {
     let id: Int
     let name: String
-    var profile_path: String = ""
+    var profile_path: String?
 }
 
 struct CastApiResponse: Codable {

@@ -15,7 +15,7 @@ func mapMoviePhoto(movies: [Movie]) -> [Movie] {
 
 func mapActorPhoto(actors: [Actor]) -> [Actor] {
     let mapedActors =  actors.map { movieActor in
-        Actor(id: movieActor.id, name: movieActor.name, profile_path: "https://image.tmdb.org/t/p/w500/\(movieActor.profile_path)")
+        Actor(id: movieActor.id, name: movieActor.name, profile_path: "https://image.tmdb.org/t/p/w500/\(movieActor.profile_path ?? "")")
     }.prefix(10)
     return Array(mapedActors)
 }

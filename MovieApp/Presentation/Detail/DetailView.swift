@@ -35,7 +35,7 @@ struct ActorView: View {
     let actor: Actor
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: actor.profile_path)) { image in
+            AsyncImage(url: URL(string: actor.profile_path ?? "")) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -182,7 +182,7 @@ struct DetailView: View {
             await viewModel.getPlatforms(movieId: viewModel.movie.id)
         }
         
-        
+    
         
     }
 }
