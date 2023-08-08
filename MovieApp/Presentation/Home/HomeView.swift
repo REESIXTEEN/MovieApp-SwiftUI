@@ -38,12 +38,15 @@ struct MovieSection: View {
     let title: String
     
     var body: some View {
-        Section(header:
+        VStack{
             Text(title)
                 .foregroundColor(.white)
-                .padding(8)
-                .font(.title3)){
-//                    Divider().background(.white).padding([.leading,.trailing],50)
+                .padding(.top, 16)
+                .padding(.leading, 8)
+                .padding(.bottom, -4)
+                .font(.title3)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
             ScrollView(.horizontal,showsIndicators: false) {
                 HStack{
                     ForEach(movies) { movie in
@@ -55,6 +58,7 @@ struct MovieSection: View {
         }
         .listRowInsets(EdgeInsets())
         .listRowBackground(backgroundColor)
+        
     }
 }
 
@@ -83,7 +87,7 @@ struct PrincipalMovieSection: View {
 
 
 struct HomeView: View {
-    @State private var paddingAnim = 500.0
+    @State private var paddingAnim = 5000.0
     @State private var searchText = ""
     @ObservedObject var viewModel: HomeViewModel
     
@@ -92,9 +96,12 @@ struct HomeView: View {
             List {
                 PrincipalMovieSection(movies: viewModel.newMovies)
                     .padding(.leading, paddingAnim)
+
                 MovieSection(movies: viewModel.popularMovies, title: "Most Popular")
                     .padding(.leading, -paddingAnim)
+
                 MovieSection(movies: viewModel.topMovies, title: "Top Rated")
+                
             }
             .listStyle(.grouped)
             .scrollContentBackground(.hidden)
@@ -102,7 +109,7 @@ struct HomeView: View {
             .background(backgroundColor)
             .onAppear{
                 DispatchQueue.main.async {
-                    withAnimation(.linear(duration: 0.8)) {
+                    withAnimation(.linear(duration: 1).delay(1.5)) {
                         paddingAnim = 0
                     }
                 }

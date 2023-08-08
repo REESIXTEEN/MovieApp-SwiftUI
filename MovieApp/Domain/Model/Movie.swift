@@ -15,4 +15,5 @@ struct Movie: Codable, Identifiable {
     let poster_path: String
     let title: String
     let vote_average: Double
+    let release_date: String
 }

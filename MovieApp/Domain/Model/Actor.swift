@@ -11,5 +11,5 @@ import Foundation
 struct Actor: Identifiable {
     let id: String
     let name: String
-    let image: String
+    let photo: String
 }

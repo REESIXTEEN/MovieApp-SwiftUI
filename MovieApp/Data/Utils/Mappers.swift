@@ -9,6 +9,6 @@ import Foundation
 
 func mapMoviePhoto(movies: [Movie]) -> [Movie] {
     return movies.map { movie in
-        Movie(id: movie.id, overview: movie.overview, popularity: movie.popularity, poster_path: "https://image.tmdb.org/t/p/w500/\(movie.poster_path)", title: movie.title, vote_average: movie.vote_average)
+        Movie(id: movie.id, overview: movie.overview, popularity: movie.popularity, poster_path: "https://image.tmdb.org/t/p/w500/\(movie.poster_path)", title: movie.title, vote_average: movie.vote_average, release_date: movie.release_date)
     }
 }

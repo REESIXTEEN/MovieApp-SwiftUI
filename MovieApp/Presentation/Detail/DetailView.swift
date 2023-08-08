@@ -35,12 +35,12 @@ struct ActorView: View {
     let actor: Actor
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: actor.image)) { image in
+            AsyncImage(url: URL(string: actor.photo)) { image in
                 image
                     .resizable()
                     .scaledToFill()
             } placeholder: {
-                Image(systemName: "popcorn.fill")
+                Image(systemName: "person.circle")
                     .resizable()
                     .scaledToFill()
             }
@@ -155,19 +155,12 @@ struct DetailView: View {
                         .lineLimit(1)
                 }
                 
-                HStack{
-                    Text("Country: \(movie.title)")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .lineLimit(1)
-                    Spacer()
-                    Text(movie.title)
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .lineLimit(1)
-                }
+                Text(movie.release_date)
+                    .font(.title3)
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(movie.overview)
                     .font(.body)
@@ -193,6 +186,5 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(movie: movies[0])
-//        ActorView(actor: .init(id: "1", name: "Margot Robie", photo: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"))
     }
 }
