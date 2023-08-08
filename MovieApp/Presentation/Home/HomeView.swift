@@ -15,7 +15,10 @@ struct MovieView: View {
     
     var body: some View {
         NavigationLink {
-            DetailView(movie: movie)
+            let remoteDataSource = RemoteDataSourceImpl()
+            let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
+            let viewModel = DetailViewModel(repository: repository, movie: movie)
+            DetailView(viewModel: viewModel)
         } label: {
             ZStack(alignment: .bottom) {
                 
@@ -90,6 +93,7 @@ struct HomeView: View {
     @State private var paddingAnim = 5000.0
     @State private var searchText = ""
     @ObservedObject var viewModel: HomeViewModel
+    @EnvironmentObject var detailViewModel: DetailViewModel
     
     var body: some View {
         NavigationView {
@@ -109,7 +113,7 @@ struct HomeView: View {
             .background(backgroundColor)
             .onAppear{
                 DispatchQueue.main.async {
-                    withAnimation(.linear(duration: 1).delay(1.5)) {
+                    withAnimation(.linear(duration: 1).delay(1)) {
                         paddingAnim = 0
                     }
                 }

@@ -35,7 +35,7 @@ struct ActorView: View {
     let actor: Actor
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: actor.photo)) { image in
+            AsyncImage(url: URL(string: actor.profile_path)) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -61,7 +61,7 @@ struct PlatformView: View {
     let platform: Platform
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: platform.image)) { image in
+            AsyncImage(url: URL(string: platform.logo_path)) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -128,48 +128,48 @@ struct PlatformsSection: View {
 
 
 struct DetailView: View {
-    let movie: Movie
-    
-    init(movie: Movie) {
-        self.movie = movie
-        UINavigationBar.appearance().barStyle = .black
-    }
+    @ObservedObject var viewModel: DetailViewModel
     
     var body: some View {
+        
         ScrollView{
             VStack {
-                PrincipalImage(movieImage: movie.poster_path)
+                PrincipalImage(movieImage: viewModel.movie.poster_path)
                 
                 HStack{
-                    Text(movie.title)
+                    Text(viewModel.movie.title)
                         .font(.title)
                         .bold()
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
                     Spacer()
-                    Text(String(format: "%.1f / 10", movie.vote_average))
+                    Text(String(format: "%.1f / 10", viewModel.movie.vote_average))
                         .font(.title2)
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
                 }
                 
-                Text(movie.release_date)
+                Text("Fecha de estreno: \(viewModel.movie.release_date)")
                     .font(.title3)
                     .foregroundColor(.white)
                     .padding(8)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(movie.overview)
+                Text(viewModel.movie.overview)
                     .font(.body)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(8)
                 
-                CastSection(cast: cast)
-                PlatformsSection(platforms: platforms)
+                if(!viewModel.cast.isEmpty){
+                    CastSection(cast: viewModel.cast)
+                }
+                if(!viewModel.platforms.isEmpty){
+                    PlatformsSection(platforms: viewModel.platforms)
+                }
                 
             }
         }
@@ -177,6 +177,10 @@ struct DetailView: View {
         .toolbarColorScheme(.dark, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await viewModel.getCast(movieId: viewModel.movie.id)
+            await viewModel.getPlatforms(movieId: viewModel.movie.id)
+        }
         
         
         
@@ -185,6 +189,9 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(movie: movies[0])
+        let remoteDataSource = RemoteDataSourceImpl()
+        let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
+        let viewModel = DetailViewModel(repository: repository, movie: movies[0])
+        DetailView(viewModel: viewModel)
     }
 }

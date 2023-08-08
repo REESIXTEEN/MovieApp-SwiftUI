@@ -8,8 +8,13 @@
 import Foundation
 
 
-struct Actor: Identifiable {
-    let id: String
+struct Actor: Codable, Identifiable {
+    let id: Int
     let name: String
-    let photo: String
+    var profile_path: String = ""
+}
+
+struct CastApiResponse: Codable {
+    let id: Int
+    let cast: [Actor]
 }

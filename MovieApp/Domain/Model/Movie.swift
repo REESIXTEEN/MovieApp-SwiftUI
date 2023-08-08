@@ -17,3 +17,7 @@ struct Movie: Codable, Identifiable {
     let vote_average: Double
     let release_date: String
 }
+
+struct MovieApiResponse: Codable {
+    let results: [Movie]
+}

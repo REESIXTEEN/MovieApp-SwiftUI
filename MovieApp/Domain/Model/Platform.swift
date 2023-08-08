@@ -7,8 +7,22 @@
 
 import Foundation
 
-struct Platform: Identifiable{
-    let id: String
-    let name: String
-    let image: String
+struct Platform: Codable, Identifiable{
+    var id: Int {provider_id}
+    let provider_id: Int
+    let logo_path: String
+    let provider_name: String
+}
+
+struct PlatformType: Codable {
+    let rent: [Platform]
+}
+
+struct Country: Codable  {
+    let ES:  PlatformType
+}
+
+struct PlatformApiResponse: Codable {
+    let id: Int
+    let results: Country
 }

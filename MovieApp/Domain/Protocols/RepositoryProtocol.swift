@@ -12,5 +12,7 @@ protocol RepositoryProtocol {
     func getTopMovies() async throws -> [Movie]
     func getPopularMovies() async throws -> [Movie]
     func getNewMovies() async throws -> [Movie]
+    func getCast(movieId:Int) async throws -> [Actor]
+    func getPlatforms(movieId:Int) async throws -> [Platform]
     
 }

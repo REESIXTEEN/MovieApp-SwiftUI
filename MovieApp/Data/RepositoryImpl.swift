@@ -31,5 +31,15 @@ final class RepositoryImpl: RepositoryProtocol {
         return mapMoviePhoto(movies: movies)
     }
     
+    func getCast(movieId : Int) async throws -> [Actor] {
+        guard let cast =  try? await remoteDataSource.getCast(movieId: movieId) else { return [] }
+        return mapActorPhoto(actors: cast)
+    }
+    
+    func getPlatforms(movieId : Int) async throws -> [Platform] {
+        guard let platforms =  try? await remoteDataSource.getPlatforms(movieId: movieId) else { return [] }
+        return mapPlatformPhoto(platforms: platforms)
+    }
+    
     
 }

@@ -14,16 +14,15 @@ let movies: [Movie] = [
 ]
 
 let cast: [Actor] = [
-    .init(id: "1", name: "Margot Robie", photo: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
-    .init(id: "2", name: "Margot Robie", photo: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
-    .init(id: "3", name: "Margot Robie", photo: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
-    .init(id: "4", name: "Margot Robie", photo: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
+    .init(id: 1, name: "Margot Robie", profile_path: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
+    .init(id: 2, name: "Margot Robie", profile_path: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
+    .init(id: 3, name: "Margot Robie", profile_path: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
+    .init(id: 4, name: "Margot Robie", profile_path: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg"),
     
 ]
 
 let platforms: [Platform] = [
-    .init(id: "1", name: "Apple TV", image: "https://image.tmdb.org/t/p/w500/peURlLlr8jggOwK53fJ5wdQl05y.jpg"),
-    .init(id: "2", name: "Amazon Video", image: "https://image.tmdb.org/t/p/w500/5NyLm42TmCqCMOZFvH4fcoSNKEW.jpg"),
-    .init(id: "3", name: "Movistar Play", image: "https://image.tmdb.org/t/p/w500/cDzkhgvozSr4GW2aRdV22uDuFpw.jpg")
-
+    .init(provider_id: 1, logo_path: "https://image.tmdb.org/t/p/w500/peURlLlr8jggOwK53fJ5wdQl05y.jpg", provider_name: "Apple TV"),
+    .init(provider_id: 2, logo_path: "https://image.tmdb.org/t/p/w500/uOTEObCZtolNGDA7A4Wrb47cxNn.jpg", provider_name: "Amazon Video"),
+    .init(provider_id: 3, logo_path: "https://image.tmdb.org/t/p/w500/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg", provider_name: "Movistar Play")
 ]
