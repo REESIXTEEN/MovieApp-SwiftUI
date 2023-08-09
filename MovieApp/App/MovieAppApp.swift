@@ -14,8 +14,9 @@ struct MovieAppApp: App {
             let remoteDataSource = RemoteDataSourceImpl()
             let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
             let homeViewModel = HomeViewModel(repository: repository)
-            HomeView(viewModel: homeViewModel)
-//            SplashVeeiew()
+            HomeView()
+                .environmentObject(homeViewModel)
+            
 
         }
     }

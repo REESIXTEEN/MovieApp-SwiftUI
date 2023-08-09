@@ -12,12 +12,11 @@ let backgroundColor = Color(red: 0.063, green: 0.176, blue: 0.243)
 struct MovieView: View {
     let movie: Movie
     let textFont: Font
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         NavigationLink {
-            let remoteDataSource = RemoteDataSourceImpl()
-            let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
-            let viewModel = DetailViewModel(repository: repository, movie: movie)
+            let viewModel = DetailViewModel(repository: homeViewModel.repository, movie: movie)
             DetailView(viewModel: viewModel)
         } label: {
             ZStack(alignment: .bottom) {
@@ -92,14 +91,13 @@ struct PrincipalMovieSection: View {
 struct HomeView: View {
     @State private var paddingAnim = 5000.0
     @State private var searchText = ""
-    @ObservedObject var viewModel: HomeViewModel
-    @EnvironmentObject var detailViewModel: DetailViewModel
+    @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
         NavigationView {
             List {
                 PrincipalMovieSection(movies: viewModel.newMovies)
-                    .padding(.leading, paddingAnim)
+                    .padding(.leading, paddingAnim/10)
 
                 MovieSection(movies: viewModel.popularMovies, title: "Most Popular")
                     .padding(.leading, -paddingAnim)
@@ -122,17 +120,17 @@ struct HomeView: View {
             
         }
         .searchable(text: $searchText,prompt: "Search movie")
+        .onSubmit {
+            
+        }
         
-        //splash screen -----
+        //splash screen ----- Done this way to be able to load de images while the splash is showing
         .overlay{
             SplashView()
         }
         // ------
     }
     
-    var searchResults: String {
-        ""
-    }
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -140,7 +138,8 @@ struct HomeView_Previews: PreviewProvider {
         let remoteDataSource = RemoteDataSourceImpl()
         let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
         let viewModel = HomeViewModel(repository: repository)
-        HomeView(viewModel: viewModel)
+        HomeView()
+            .environmentObject(viewModel)
     }
 }
 

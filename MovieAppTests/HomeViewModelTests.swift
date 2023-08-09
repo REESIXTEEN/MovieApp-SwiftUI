@@ -1,14 +1,13 @@
 //
-//  MovieAppTests.swift
+//  HomeViewModelTests.swift
 //  MovieAppTests
 //
-//  Created by Gómez Gruss Pablo on 2/8/23.
+//  Created by Gómez Gruss Pablo on 9/8/23.
 //
 
 import XCTest
-@testable import MovieApp
 
-final class MovieAppTests: XCTestCase {
+final class HomeViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,14 +18,8 @@ final class MovieAppTests: XCTestCase {
     }
 
     func testExample() throws {
-
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
 
 }

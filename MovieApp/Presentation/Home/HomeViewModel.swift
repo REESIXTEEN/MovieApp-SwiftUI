@@ -10,7 +10,7 @@ import Foundation
 
 final class HomeViewModel: ObservableObject {
     
-    private let repository: RepositoryProtocol
+    let repository: RepositoryProtocol
     @Published var newMovies: [Movie] = []
     @Published var topMovies: [Movie] = []
     @Published var popularMovies: [Movie] = []

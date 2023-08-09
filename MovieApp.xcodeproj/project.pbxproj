@@ -10,7 +10,6 @@
 		582371CB2A7A3CD100A7F756 /* MovieAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582371CA2A7A3CD100A7F756 /* MovieAppApp.swift */; };
 		582371CF2A7A3CD200A7F756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 582371CE2A7A3CD200A7F756 /* Assets.xcassets */; };
 		582371D22A7A3CD200A7F756 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 582371D12A7A3CD200A7F756 /* Preview Assets.xcassets */; };
-		582371DC2A7A3CD200A7F756 /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582371DB2A7A3CD200A7F756 /* MovieAppTests.swift */; };
 		582371E62A7A3CD200A7F756 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582371E52A7A3CD200A7F756 /* MovieAppUITests.swift */; };
 		582371E82A7A3CD200A7F756 /* MovieAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582371E72A7A3CD200A7F756 /* MovieAppUITestsLaunchTests.swift */; };
 		582372002A7A3DF500A7F756 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582371FF2A7A3DF500A7F756 /* HomeView.swift */; };
@@ -30,6 +29,8 @@
 		586164CC2A81087600C950EC /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164CB2A81087600C950EC /* Mappers.swift */; };
 		586164CF2A810EE000C950EC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164CE2A810EE000C950EC /* SplashView.swift */; };
 		58E6D0E32A82478400CD6B48 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6D0E22A82478400CD6B48 /* DetailViewModel.swift */; };
+		58E6D0E72A838CB800CD6B48 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6D0E62A838CB800CD6B48 /* HomeViewModelTests.swift */; };
+		58E6D0E92A838D1100CD6B48 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6D0E82A838D1100CD6B48 /* DetailViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,6 @@
 		582371CE2A7A3CD200A7F756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		582371D12A7A3CD200A7F756 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		582371D72A7A3CD200A7F756 /* MovieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		582371DB2A7A3CD200A7F756 /* MovieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppTests.swift; sourceTree = "<group>"; };
 		582371E12A7A3CD200A7F756 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582371E52A7A3CD200A7F756 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
 		582371E72A7A3CD200A7F756 /* MovieAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -77,6 +77,8 @@
 		586164CE2A810EE000C950EC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		58E6D0E22A82478400CD6B48 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		58E6D0E42A8367B900CD6B48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		58E6D0E62A838CB800CD6B48 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		58E6D0E82A838D1100CD6B48 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +152,8 @@
 		582371DA2A7A3CD200A7F756 /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				582371DB2A7A3CD200A7F756 /* MovieAppTests.swift */,
+				58E6D0E62A838CB800CD6B48 /* HomeViewModelTests.swift */,
+				58E6D0E82A838D1100CD6B48 /* DetailViewModelTests.swift */,
 			);
 			path = MovieAppTests;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 					};
 					582371D62A7A3CD200A7F756 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = 582371C62A7A3CD100A7F756;
 					};
 					582371E02A7A3CD200A7F756 = {
@@ -428,7 +432,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				582371DC2A7A3CD200A7F756 /* MovieAppTests.swift in Sources */,
+				58E6D0E72A838CB800CD6B48 /* HomeViewModelTests.swift in Sources */,
+				58E6D0E92A838D1100CD6B48 /* DetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +637,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -640,6 +646,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pablogomez.MovieAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieAppTests/MovieAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieApp";
@@ -651,6 +659,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -659,6 +668,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pablogomez.MovieAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieAppTests/MovieAppTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MovieApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MovieApp";
