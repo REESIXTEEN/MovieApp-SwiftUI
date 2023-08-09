@@ -19,12 +19,6 @@ final class DetailViewModel: ObservableObject {
     init(repository: RepositoryProtocol, movie: Movie) {
         self.repository = repository
         self.movie = movie
-//        DispatchQueue.main.async {
-//            Task {
-//                await self.getCast(movieId: movie.id)
-//                await self.getPlatforms(movieId: movie.id)
-//            }
-//        }
     }
     
     func getCast(movieId:Int) async {

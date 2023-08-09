@@ -9,23 +9,19 @@ import SwiftUI
 
 struct SplashView: View {
     
-    @State var isActive:Bool = false
+    @State private var opacity = 1.0
     
     var body: some View {
-        VStack {
-            Text("Awesome Splash Screen!")
-                .font(Font.largeTitle)
-
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                print("a")
+        Text("SplashView")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.white)
+            .opacity(opacity)
+            .task{
+                withAnimation(.linear(duration: 0.25).delay(1)) {
+                    opacity = 0
+                }
             }
-        }
     }
-    
 }
 
 struct SplashView_Previews: PreviewProvider {

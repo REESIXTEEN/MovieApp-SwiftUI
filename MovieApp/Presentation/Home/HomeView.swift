@@ -111,44 +111,29 @@ struct HomeView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle(Text("Movie App"))
             .background(backgroundColor)
-            .onAppear{
-                DispatchQueue.main.async {
-                    withAnimation(.linear(duration: 1).delay(1)) {
-                        paddingAnim = 0
-                    }
+            .task{
+                withAnimation(.linear(duration: 1).delay(1)) {
+                    paddingAnim = 0
                 }
             }
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(backgroundColor, for: .navigationBar)
+            
         }
         .searchable(text: $searchText,prompt: "Search movie")
+        
+        //splash screen -----
+        .overlay{
+            SplashView()
+        }
+        // ------
     }
     
     var searchResults: String {
         ""
     }
 }
-
-
-//struct prueba: View {
-//    @State private var showHome = false
-//    var body: some View {
-//        if showHome {
-//            let remoteDataSource = RemoteDataSourceImpl()
-//            let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
-//            let homeViewModel = HomeViewModel(repository: repository)
-//            HomeView(homeViewModel: homeViewModel)
-//        }
-//        else {
-//            SplashView()
-//                .onAppear{
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-//                        showHome = true
-//                    }
-//                }
-//        }
-//    }
-//}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
