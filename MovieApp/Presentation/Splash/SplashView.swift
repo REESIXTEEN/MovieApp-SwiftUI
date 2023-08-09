@@ -14,7 +14,8 @@ struct SplashView: View {
     var body: some View {
         Text("SplashView")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.white)
+            .background(backgroundColor)
+            .foregroundColor(.white)
             .opacity(opacity)
             .task{
                 withAnimation(.linear(duration: 0.25).delay(1)) {
