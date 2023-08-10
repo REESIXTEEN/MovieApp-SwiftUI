@@ -118,8 +118,6 @@ struct HomeView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(backgroundColor, for: .navigationBar)
             
-            
-            
         }
         .searchable(text: $searchText,prompt: "Search movie")
         .onSubmit(of: .search){
