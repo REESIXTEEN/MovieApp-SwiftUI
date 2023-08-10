@@ -27,6 +27,7 @@
 		582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */; };
 		582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */; };
 		582828792A84D432002127C7 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828782A84D432002127C7 /* NetworkMock.swift */; };
+		5828287E2A84E795002127C7 /* MappersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5828287D2A84E795002127C7 /* MappersTests.swift */; };
 		586164C32A80D17700C950EC /* BaseResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C22A80D17700C950EC /* BaseResquest.swift */; };
 		586164C52A80D77400C950EC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C42A80D77400C950EC /* NetworkProtocol.swift */; };
 		586164CA2A80F86B00C950EC /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C92A80F86B00C950EC /* URLSessionExtension.swift */; };
@@ -80,6 +81,7 @@
 		582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceMock.swift; sourceTree = "<group>"; };
 		582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceTests.swift; sourceTree = "<group>"; };
 		582828782A84D432002127C7 /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
+		5828287D2A84E795002127C7 /* MappersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappersTests.swift; sourceTree = "<group>"; };
 		586164C22A80D17700C950EC /* BaseResquest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResquest.swift; sourceTree = "<group>"; };
 		586164C42A80D77400C950EC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		586164C92A80F86B00C950EC /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -291,6 +293,14 @@
 			path = Remote;
 			sourceTree = "<group>";
 		};
+		5828287A2A84E775002127C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5828287D2A84E795002127C7 /* MappersTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		586164C82A80F85000C950EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +339,7 @@
 		58E6D0EF2A83ACEA00CD6B48 /* Suts */ = {
 			isa = PBXGroup;
 			children = (
+				5828287A2A84E775002127C7 /* Utils */,
 				582828702A84BAF2002127C7 /* Data */,
 				58E6D0F02A83ACF800CD6B48 /* Presentation */,
 			);
@@ -524,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5828287E2A84E795002127C7 /* MappersTests.swift in Sources */,
 				582828792A84D432002127C7 /* NetworkMock.swift in Sources */,
 				582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */,
 				582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */,
