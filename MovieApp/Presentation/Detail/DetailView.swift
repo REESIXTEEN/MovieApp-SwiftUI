@@ -132,54 +132,62 @@ struct DetailView: View {
     
     var body: some View {
         
-        ScrollView{
-            VStack {
-                PrincipalImage(movieImage: viewModel.movie.poster_path)
-                
-                HStack{
-                    Text(viewModel.movie.title)
-                        .font(.title)
-                        .bold()
+        if let movie = viewModel.movie{
+            ScrollView{
+                VStack {
+                    PrincipalImage(movieImage: movie.poster_path)
+                    
+                    HStack{
+                        Text(movie.title)
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding(8)
+                            .lineLimit(1)
+                        Spacer()
+                        Text(String(format: "%.1f / 10", movie.vote_average))
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding(8)
+                            .lineLimit(1)
+                    }
+                    
+                    Text("Fecha de estreno: \(movie.release_date)")
+                        .font(.title3)
                         .foregroundColor(.white)
                         .padding(8)
                         .lineLimit(1)
-                    Spacer()
-                    Text(String(format: "%.1f / 10", viewModel.movie.vote_average))
-                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text(movie.overview)
+                        .font(.body)
                         .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(8)
-                        .lineLimit(1)
+                    
+                    if(!viewModel.cast.isEmpty){
+                        CastSection(cast: viewModel.cast)
+                    }
+                    if(!viewModel.platforms.isEmpty){
+                        PlatformsSection(platforms: viewModel.platforms)
+                    }
+                    
                 }
-                
-                Text("Fecha de estreno: \(viewModel.movie.release_date)")
-                    .font(.title3)
-                    .foregroundColor(.white)
-                    .padding(8)
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                
-                Text(viewModel.movie.overview)
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(8)
-                
-                if(!viewModel.cast.isEmpty){
-                    CastSection(cast: viewModel.cast)
-                }
-                if(!viewModel.platforms.isEmpty){
-                    PlatformsSection(platforms: viewModel.platforms)
-                }
-                
+            }
+            .background(backgroundColor)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await viewModel.getCast(movieId: movie.id)
+                await viewModel.getPlatforms(movieId: movie.id)
             }
         }
-        .background(backgroundColor)
-        .toolbarColorScheme(.dark, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .navigationBarTitleDisplayMode(.inline)
-        .task {
-            await viewModel.getCast(movieId: viewModel.movie.id)
-            await viewModel.getPlatforms(movieId: viewModel.movie.id)
+        else{
+            Text("Movie not found")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(backgroundColor)
+                .foregroundColor(.white)
         }
         
     
@@ -191,7 +199,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let remoteDataSource = RemoteDataSourceImpl()
         let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
-        let viewModel = DetailViewModel(repository: repository, movie: movies[0])
+        let viewModel = DetailViewModel(repository: repository, movie: nil)
         DetailView(viewModel: viewModel)
     }
 }

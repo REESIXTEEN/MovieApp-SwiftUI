@@ -16,29 +16,34 @@ final class RepositoryImpl: RepositoryProtocol {
         self.remoteDataSource = remoteDataSource
     }
     
-    func getTopMovies() async throws -> [Movie] {
+    func getTopMovies() async -> [Movie] {
         guard let movies =  try? await remoteDataSource.getTopMovies() else { return [] }
         return mapMoviePhoto(movies: movies)
     }
     
-    func getPopularMovies() async throws -> [Movie] {
+    func getPopularMovies() async -> [Movie] {
         guard let movies =  try? await remoteDataSource.getPopularMovies() else { return [] }
         return mapMoviePhoto(movies: movies)
     }
     
-    func getNewMovies() async throws -> [Movie] {
+    func getNewMovies() async -> [Movie] {
         guard let movies =  try? await remoteDataSource.getNewMovies() else { return [] }
         return mapMoviePhoto(movies: movies)
     }
     
-    func getCast(movieId : Int) async throws -> [Actor] {
+    func getCast(movieId : Int) async -> [Actor] {
         guard let cast =  try? await remoteDataSource.getCast(movieId: movieId) else { return [] }
         return mapActorPhoto(actors: cast)
     }
     
-    func getPlatforms(movieId : Int) async throws -> [Platform] {
+    func getPlatforms(movieId : Int) async -> [Platform] {
         guard let platforms =  try? await remoteDataSource.getPlatforms(movieId: movieId) else { return [] }
         return mapPlatformPhoto(platforms: platforms)
+    }
+    
+    func getMovie(movieTitle: String) async -> Movie? {
+        guard let movies =  try? await remoteDataSource.getTopMovies() else { return nil }
+        return movies.first
     }
     
     

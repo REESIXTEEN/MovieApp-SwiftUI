@@ -14,5 +14,6 @@ protocol RemoteDataSourceProtocol {
     func getNewMovies() async throws -> [Movie]?
     func getCast(movieId : Int) async throws -> [Actor]?
     func getPlatforms(movieId : Int) async throws -> [Platform]?
+    func getMovie(movieTitle: String) async throws -> [Movie]?
     
 }

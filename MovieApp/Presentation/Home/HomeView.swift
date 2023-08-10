@@ -118,10 +118,12 @@ struct HomeView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground(backgroundColor, for: .navigationBar)
             
+            
+            
         }
         .searchable(text: $searchText,prompt: "Search movie")
-        .onSubmit {
-            
+        .onSubmit(of: .search){
+            //TODO 
         }
         
         //splash screen ----- Done this way to be able to load de images while the splash is showing

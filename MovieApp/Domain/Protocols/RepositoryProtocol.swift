@@ -9,10 +9,11 @@ import Foundation
 
 protocol RepositoryProtocol {
     
-    func getTopMovies() async throws -> [Movie]
-    func getPopularMovies() async throws -> [Movie]
-    func getNewMovies() async throws -> [Movie]
-    func getCast(movieId:Int) async throws -> [Actor]
-    func getPlatforms(movieId:Int) async throws -> [Platform]
+    func getTopMovies() async -> [Movie]
+    func getPopularMovies() async -> [Movie]
+    func getNewMovies() async -> [Movie]
+    func getCast(movieId:Int) async -> [Actor]
+    func getPlatforms(movieId:Int) async -> [Platform]
+    func getMovie(movieTitle: String) async -> Movie?
     
 }

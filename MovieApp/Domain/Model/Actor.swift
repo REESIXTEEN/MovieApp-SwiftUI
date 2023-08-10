@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Actor: Codable, Identifiable {
+struct Actor: Codable, Identifiable, Equatable {
     let id: Int
     let name: String
     var profile_path: String?

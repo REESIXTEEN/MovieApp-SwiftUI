@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Platform: Codable, Identifiable{
+struct Platform: Codable, Identifiable, Equatable{
     var id: Int {provider_id}
     let provider_id: Int
     let logo_path: String

@@ -13,6 +13,7 @@ enum endpoints {
     case popularMovies
     case movieCast(id:Int)
     case moviePlatforms(id:Int)
+    case searhMovie(movieTitle:String)
     
     var path: String {
         switch self {
@@ -21,6 +22,7 @@ enum endpoints {
         case .newMovies : return "movie/upcoming"
         case .topMovies : return "movie/top_rated"
         case .popularMovies : return "movie/popular"
+        case .searhMovie(let title): return "search/movie?query=\(title)&include_adult=true"
         }
     }
 }
@@ -97,6 +99,17 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         let (data, _) = try await session.data(url: request)
         let response = try JSONDecoder().decode(PlatformApiResponse.self, from: data)
         return response.results.ES.rent
+        
+    }
+    
+    func getMovie(movieTitle : String) async throws -> [Movie]?{
+        guard let request = BaseRequest.getRequest(server: servers.tmdb3.rawValue, endpoint: endpoints.searhMovie(movieTitle: movieTitle).path) else {
+            throw NetworkError.malformedURL
+        }
+        
+        let (data, _) = try await session.data(url: request)
+        let response = try JSONDecoder().decode(MovieApiResponse.self, from: data)
+        return response.results
         
     }
 }

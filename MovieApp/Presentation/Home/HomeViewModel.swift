@@ -28,33 +28,29 @@ final class HomeViewModel: ObservableObject {
     }
     
     func getNewMovies() async {
-        guard let newMovies = try? await repository.getNewMovies() else {
-            print("Error getting upcoming movies")
-            return
-        }
+        let newMovies = await repository.getNewMovies() 
         DispatchQueue.main.async {
             self.newMovies = newMovies
         }
     }
     
     func getTopMovies() async {
-        guard let topMovies = try? await repository.getTopMovies() else {
-            print("Error getting top rated movies")
-            return
-        }
+        let topMovies = await repository.getTopMovies()
         DispatchQueue.main.async {
             self.topMovies = topMovies
         }
     }
     
     func getPopularMovies() async {
-        guard let popularMovies = try? await repository.getPopularMovies() else {
-            print("Error getting popular movies")
-            return
-        }
+        let popularMovies = await repository.getPopularMovies()
         DispatchQueue.main.async {
             self.popularMovies = popularMovies
         }
+    }
+    
+    func getMovie(movieTitle: String) async -> Movie? {
+        let movie = await repository.getMovie(movieTitle: movieTitle)
+        return movie
     }
     
 }
