@@ -25,16 +25,30 @@ final class DetailViewModelTests: XCTestCase {
 
     func testGetCast_withSuccessResult() async throws {
         // GIVEN
-        let expected = getCastDataExample()
+        let expected = getMappedCastDataExample()
         
         // WHEN
-        await sut?.getCast(movieId: sut?.movie!.id )
+        await sut?.getCast(movieId: (sut?.movie!.id)!)
         do{sleep(1)} // Because the getNewMovies() creates a new thread with DispatchQueue.main.async to update an observable
         // variable, we are force to wait for the main thread to update the UI
         
         // THEN
-        XCTAssertNotNil(sut?.newMovies)
-        XCTAssertEqual(sut?.newMovies, expected)
+        XCTAssertNotNil(sut?.cast)
+        XCTAssertEqual(sut?.cast, expected)
+    }
+    
+    func testGetPlatforms_withSuccessResult() async throws {
+        // GIVEN
+        let expected = getMappedPlatformsDataExample()
+        
+        // WHEN
+        await sut?.getPlatforms(movieId: (sut?.movie!.id)!)
+        do{sleep(1)} // Because the getNewMovies() creates a new thread with DispatchQueue.main.async to update an observable
+        // variable, we are force to wait for the main thread to update the UI
+        
+        // THEN
+        XCTAssertNotNil(sut?.platforms)
+        XCTAssertEqual(sut?.platforms, expected)
     }
 
 

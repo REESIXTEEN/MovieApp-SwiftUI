@@ -42,8 +42,8 @@ final class RepositoryImpl: RepositoryProtocol {
     }
     
     func getMovie(movieTitle: String) async -> Movie? {
-        guard let movies =  try? await remoteDataSource.getTopMovies() else { return nil }
-        return movies.first
+        guard let movies =  try? await remoteDataSource.getMovie(movieTitle: movieTitle ) else { return nil }
+        return mapMoviePhoto(movies: movies).first
     }
     
     

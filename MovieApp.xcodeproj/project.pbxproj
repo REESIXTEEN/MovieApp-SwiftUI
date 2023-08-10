@@ -23,6 +23,9 @@
 		582372122A7CD93700A7F756 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372112A7CD93700A7F756 /* DetailView.swift */; };
 		582372162A7CEEE200A7F756 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372152A7CEEE200A7F756 /* Actor.swift */; };
 		582372182A7D011000A7F756 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582372172A7D011000A7F756 /* Platform.swift */; };
+		582828722A84BB0E002127C7 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828712A84BB0E002127C7 /* RepositoryTests.swift */; };
+		582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */; };
+		582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */; };
 		586164C32A80D17700C950EC /* BaseResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C22A80D17700C950EC /* BaseResquest.swift */; };
 		586164C52A80D77400C950EC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C42A80D77400C950EC /* NetworkProtocol.swift */; };
 		586164CA2A80F86B00C950EC /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C92A80F86B00C950EC /* URLSessionExtension.swift */; };
@@ -72,6 +75,9 @@
 		582372112A7CD93700A7F756 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		582372152A7CEEE200A7F756 /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		582372172A7D011000A7F756 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		582828712A84BB0E002127C7 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceMock.swift; sourceTree = "<group>"; };
+		582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceTests.swift; sourceTree = "<group>"; };
 		586164C22A80D17700C950EC /* BaseResquest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResquest.swift; sourceTree = "<group>"; };
 		586164C42A80D77400C950EC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		586164C92A80F86B00C950EC /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -266,6 +272,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		582828702A84BAF2002127C7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				582828752A84C518002127C7 /* Remote */,
+				582828712A84BB0E002127C7 /* RepositoryTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		582828752A84C518002127C7 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
 		586164C82A80F85000C950EC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				58E6D0EB2A83AAA900CD6B48 /* RepositoryMock.swift */,
+				582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -302,6 +326,7 @@
 		58E6D0EF2A83ACEA00CD6B48 /* Suts */ = {
 			isa = PBXGroup;
 			children = (
+				582828702A84BAF2002127C7 /* Data */,
 				58E6D0F02A83ACF800CD6B48 /* Presentation */,
 			);
 			path = Suts;
@@ -496,9 +521,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */,
+				582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */,
 				58E6D0EC2A83AAA900CD6B48 /* RepositoryMock.swift in Sources */,
 				58E6D0E72A838CB800CD6B48 /* HomeViewModelTests.swift in Sources */,
 				58E6D0E92A838D1100CD6B48 /* DetailViewModelTests.swift in Sources */,
+				582828722A84BB0E002127C7 /* RepositoryTests.swift in Sources */,
 				58E6D0F52A83AFF300CD6B48 /* DataGenerators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

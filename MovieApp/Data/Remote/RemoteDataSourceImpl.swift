@@ -77,7 +77,6 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         let (data, _) = try await session.data(url: request)
         let newMovies = try JSONDecoder().decode(MovieApiResponse.self, from: data)
         return newMovies.results
-        
     }
     
     func getCast(movieId : Int) async throws -> [Actor]?{
@@ -88,7 +87,6 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         let (data, _) = try await session.data(url: request)
         let response = try JSONDecoder().decode(CastApiResponse.self, from: data)
         return response.cast
-        
     }
     
     func getPlatforms(movieId : Int) async throws -> [Platform]?{
@@ -99,7 +97,6 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         let (data, _) = try await session.data(url: request)
         let response = try JSONDecoder().decode(PlatformApiResponse.self, from: data)
         return response.results.ES.rent
-        
     }
     
     func getMovie(movieTitle : String) async throws -> [Movie]?{
@@ -110,6 +107,5 @@ class RemoteDataSourceImpl: RemoteDataSourceProtocol {
         let (data, _) = try await session.data(url: request)
         let response = try JSONDecoder().decode(MovieApiResponse.self, from: data)
         return response.results
-        
     }
 }

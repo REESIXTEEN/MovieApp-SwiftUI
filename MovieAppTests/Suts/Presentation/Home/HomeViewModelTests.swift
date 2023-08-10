@@ -24,7 +24,7 @@ final class HomeViewModelTests: XCTestCase {
 
     func testGetNewMovies_withSuccessResult() async throws {
         // GIVEN
-        let expected = getMoviesDataExample()
+        let expected = getMappedMoviesDataExample()
         
         // WHEN
         await sut?.getNewMovies()
@@ -38,7 +38,7 @@ final class HomeViewModelTests: XCTestCase {
     
     func testGetTopMovies_withSuccessResult() async throws {
         // GIVEN
-        let expected = getMoviesDataExample()
+        let expected = getMappedMoviesDataExample()
         
         // WHEN
         await sut?.getTopMovies()
@@ -52,7 +52,7 @@ final class HomeViewModelTests: XCTestCase {
     
     func testGetPopularMovies_withSuccessResult() async throws {
         // GIVEN
-        let expected = getMoviesDataExample()
+        let expected = getMappedMoviesDataExample()
         
         // WHEN
         await sut?.getTopMovies()

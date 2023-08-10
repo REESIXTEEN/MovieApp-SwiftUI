@@ -19,7 +19,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getTopMovies() async -> [Movie] {
         switch self.success {
         case true:
-            return getMoviesDataExample()
+            return getMappedMoviesDataExample()
         case false:
             return []
         }
@@ -28,7 +28,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getPopularMovies() async -> [Movie] {
         switch self.success {
         case true:
-            return getMoviesDataExample()
+            return getMappedMoviesDataExample()
         case false:
             return []
         }
@@ -37,7 +37,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getNewMovies() async -> [Movie] {
         switch self.success {
         case true:
-            return getMoviesDataExample()
+            return getMappedMoviesDataExample()
         case false:
             return []
         }
@@ -46,7 +46,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getCast(movieId:Int) async -> [Actor] {
         switch self.success {
         case true:
-            return getCastDataExample()
+            return getMappedCastDataExample()
         case false:
             return []
         }
@@ -55,7 +55,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getPlatforms(movieId:Int) async -> [Platform] {
         switch self.success {
         case true:
-            return getPlatformsDataExample()
+            return getMappedPlatformsDataExample()
         case false:
             return []
         }
@@ -64,7 +64,7 @@ final class RespositoryMock: RepositoryProtocol {
     func getMovie(movieTitle: String) async -> Movie? {
         switch self.success {
         case true:
-            return getMoviesDataExample().first
+            return getMappedMoviesDataExample().first
         case false:
             return nil
         }
