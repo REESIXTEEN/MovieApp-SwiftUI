@@ -10,7 +10,7 @@ import XCTest
 
 final class RepositoryTests: XCTestCase {
     
-    var sut: RepositoryImpl?
+    var sut: RepositoryProtocol?
 
     override func setUpWithError() throws {
         let remoteDataSourceMock = RemoteDataSourceMock(success: true)
@@ -64,6 +64,7 @@ final class RepositoryTests: XCTestCase {
         
         // THEN
         XCTAssertEqual(result, expected)
+        XCTAssertTrue(result!.count <= 10)
     }
     
     func testGetPlatforms_withSuccessResult() async throws {
@@ -76,6 +77,7 @@ final class RepositoryTests: XCTestCase {
         
         // THEN
         XCTAssertEqual(result, expected)
+        XCTAssertTrue(result!.count <= 10)
     }
     
     func testGetMovie_withSuccessResult() async throws {

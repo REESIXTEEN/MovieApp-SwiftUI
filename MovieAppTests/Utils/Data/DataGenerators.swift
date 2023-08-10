@@ -59,3 +59,22 @@ func getMappedPlatformsDataExample() -> [Platform] {
         .init(provider_id: 3, logo_path: "https://image.tmdb.org/t/p/w500/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg", provider_name: "Movistar Play")
     ]
 }
+
+func getDataApiResponse(url : URLRequest) -> (Data,URLResponse) {
+    
+    switch url.url?.absoluteString {
+    case "sx":
+        print("")
+    case "false":
+        print("")
+    default: print("")
+    }
+    
+    
+    let movies = MovieApiResponse(results: getMoviesDataExample())
+    guard let data = try? JSONEncoder().encode(movies) else {return (Data(),URLResponse())}
+    let stringJson = String(data: data, encoding: .utf8)
+    let finalData = Data(stringJson!.utf8)
+    return (finalData, URLResponse())
+}
+

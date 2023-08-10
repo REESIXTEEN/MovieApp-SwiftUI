@@ -26,6 +26,7 @@
 		582828722A84BB0E002127C7 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828712A84BB0E002127C7 /* RepositoryTests.swift */; };
 		582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */; };
 		582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */; };
+		582828792A84D432002127C7 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582828782A84D432002127C7 /* NetworkMock.swift */; };
 		586164C32A80D17700C950EC /* BaseResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C22A80D17700C950EC /* BaseResquest.swift */; };
 		586164C52A80D77400C950EC /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C42A80D77400C950EC /* NetworkProtocol.swift */; };
 		586164CA2A80F86B00C950EC /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586164C92A80F86B00C950EC /* URLSessionExtension.swift */; };
@@ -78,6 +79,7 @@
 		582828712A84BB0E002127C7 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceMock.swift; sourceTree = "<group>"; };
 		582828762A84C52B002127C7 /* RemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSourceTests.swift; sourceTree = "<group>"; };
+		582828782A84D432002127C7 /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
 		586164C22A80D17700C950EC /* BaseResquest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResquest.swift; sourceTree = "<group>"; };
 		586164C42A80D77400C950EC /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		586164C92A80F86B00C950EC /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				58E6D0EB2A83AAA900CD6B48 /* RepositoryMock.swift */,
 				582828732A84BB3B002127C7 /* RemoteDataSourceMock.swift */,
+				582828782A84D432002127C7 /* NetworkMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582828792A84D432002127C7 /* NetworkMock.swift in Sources */,
 				582828772A84C52B002127C7 /* RemoteDataSourceTests.swift in Sources */,
 				582828742A84BB3B002127C7 /* RemoteDataSourceMock.swift in Sources */,
 				58E6D0EC2A83AAA900CD6B48 /* RepositoryMock.swift in Sources */,
