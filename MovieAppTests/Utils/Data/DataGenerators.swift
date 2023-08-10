@@ -60,21 +60,3 @@ func getMappedPlatformsDataExample() -> [Platform] {
     ]
 }
 
-func getDataApiResponse(url : URLRequest) -> (Data,URLResponse) {
-    
-    switch url.url?.absoluteString {
-    case "sx":
-        print("")
-    case "false":
-        print("")
-    default: print("")
-    }
-    
-    
-    let movies = MovieApiResponse(results: getMoviesDataExample())
-    guard let data = try? JSONEncoder().encode(movies) else {return (Data(),URLResponse())}
-    let stringJson = String(data: data, encoding: .utf8)
-    let finalData = Data(stringJson!.utf8)
-    return (finalData, URLResponse())
-}
-
