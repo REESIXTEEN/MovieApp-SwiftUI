@@ -91,10 +91,12 @@ struct PrincipalMovieSection: View {
 struct HomeView: View {
     @State private var paddingAnim = 5000.0
     @State private var searchText = ""
+    @State private var searchedMovie: Movie? = nil
+    @State private var goToSearchedMovie = false
     @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 PrincipalMovieSection(movies: viewModel.newMovies)
                     .padding(.leading, paddingAnim/10)
@@ -109,26 +111,36 @@ struct HomeView: View {
             .scrollContentBackground(.hidden)
             .navigationTitle(Text("Movie App"))
             .background(backgroundColor)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(backgroundColor, for: .navigationBar)
             .task{
                 withAnimation(.linear(duration: 1).delay(1)) {
                     paddingAnim = 0
                 }
             }
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarBackground(backgroundColor, for: .navigationBar)
             
+            NavigationLink(isActive: $goToSearchedMovie) {
+                let viewModel = DetailViewModel(repository: viewModel.repository, movie: searchedMovie)
+                DetailView(viewModel: viewModel)
+                
+            } label: {
+                EmptyView()
+            }
+
         }
         .searchable(text: $searchText,prompt: "Search movie")
         .onSubmit(of: .search){
-            //TODO 
+            Task{
+                searchedMovie = await viewModel.getMovie(movieTitle: searchText)
+                goToSearchedMovie = true
+            }
         }
-        
+
         //splash screen ----- Done this way to be able to load de images while the splash is showing
         .overlay{
             SplashView()
         }
-        // ------
     }
     
 }

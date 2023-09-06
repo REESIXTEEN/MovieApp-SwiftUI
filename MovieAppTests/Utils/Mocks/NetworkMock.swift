@@ -9,6 +9,7 @@ import Foundation
 @testable import MovieApp
 
 class NetworkMock: NetworkProtocol {
+    
     func data(url: URLRequest) async throws -> (Data, URLResponse) {
         
         switch url.url?.absoluteString {

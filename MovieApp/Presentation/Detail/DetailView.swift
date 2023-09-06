@@ -188,10 +188,10 @@ struct DetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(backgroundColor)
                 .foregroundColor(.white)
+                .toolbarBackground(.visible, for: .navigationBar)
+                .toolbarColorScheme(.dark, for: .navigationBar)
+                .navigationBarTitleDisplayMode(.inline)
         }
-        
-    
-        
     }
 }
 
@@ -199,7 +199,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let remoteDataSource = RemoteDataSourceImpl()
         let repository = RepositoryImpl(remoteDataSource: remoteDataSource)
-        let viewModel = DetailViewModel(repository: repository, movie: nil)
+        let viewModel = DetailViewModel(repository: repository, movie: movies[0])
         DetailView(viewModel: viewModel)
     }
 }

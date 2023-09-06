@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Movie: Codable, Identifiable, Equatable {
+struct Movie: Codable, Identifiable, Equatable, Hashable {
     let id: Int
     let overview: String
     let popularity: Double
